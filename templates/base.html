@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Portal</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f8f9fa; color: #343a40; }
+        header, footer { background-color: #343a40; color: white; text-align: center; padding: 1rem 0; }
+        header nav { padding: 0.5rem 0; }
+        header nav span, header nav a { color: white; margin: 0 1rem; }
+        .hero { background-color: #007bff; color: white; text-align: center; padding: 4rem 2rem; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        main { max-width: 800px; margin: 2rem auto; padding: 1rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #0056b3; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        form { margin-top: 1.5rem; }
+        form p { margin-bottom: 1rem; }
+        input[type="text"], input[type="password"] { width: calc(100% - 20px); padding: 10px; border-radius: 4px; border: 1px solid #ced4da; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+        button:hover { background-color: #0056b3; }
+        hr { border: 0; height: 1px; background-color: #e9ecef; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>NextGen Research Portal</h1>
+    <nav>
+        {% if user.is_authenticated %}
+            <span>환영합니다, {{ user.username }}님!</span>
+            <a href="{% url 'logout' %}">로그아웃</a>
+            <a href="{% url 'paper_list' %}">논문 목록</a>
+        {% else %}
+            <a href="{% url 'login' %}">로그인</a>
+        {% endif %}
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>최신 AI 연구 트렌드를 한 곳에서</h2>
+    <p>관심분야 기반 개인 맞춤 논문 추천</p>
+</section>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <p>© 2025 NextGen System</p>
+</footer>
+
+</body>
+</html>

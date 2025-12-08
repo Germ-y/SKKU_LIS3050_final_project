@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>로그인</h2>
+  {% if form.non_field_errors %}
+    <div style="color:red;">
+        {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">로그인</button>
+  </form>
+  <p>아직 계정이 없으신가요? <a href="{% url 'signup' %}">회원가입</a></p>
+{% endblock %}

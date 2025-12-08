@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>홈</h2>
+  <p>환영합니다, {{ request.session.username }}님!</p>
+  <p>관심 분야: {{ request.session.interest }}</p>
+  <a href="{% url 'paper_list' %}">추천 논문 보러가기</a>
+{% endblock %}
