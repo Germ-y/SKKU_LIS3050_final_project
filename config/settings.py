@@ -75,27 +75,27 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': '차세대시스템설계론_db',
-#         'USER': 'root',
-#         'PASSWORD': 'your_password',   # Cloud SQL 비밀번호
-#         'HOST': 'your.mysql.ip',       # Cloud SQL public IP
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         }
-#     }
-# }
-
-# 로컬 개발용
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '차세대시스템설계론_db',
+        'USER': 'root',
+        'PASSWORD': 'kellysally1',
+        'HOST': '34.31.17.89',    
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
+
+# 로컬 개발용
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # 비밀번호 Validator
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
