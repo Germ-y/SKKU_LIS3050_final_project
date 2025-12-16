@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'nextgen_db',
+#         'NAME': '차세대시스템설계론_db',
 #         'USER': 'root',
 #         'PASSWORD': 'your_password',   # Cloud SQL 비밀번호
 #         'HOST': 'your.mysql.ip',       # Cloud SQL public IP
@@ -97,8 +97,7 @@ DATABASES = {
     }
 }
 
-
-# Password validation
+# 비밀번호 Validator
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 # AUTH_PASSWORD_VALIDATORS = [
@@ -116,7 +115,6 @@ DATABASES = {
 #     },
 # ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -127,7 +125,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

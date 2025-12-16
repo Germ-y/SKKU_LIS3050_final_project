@@ -1,17 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
+
 <h2>추천 논문 목록</h2>
 
-{% for paper in papers %}
+{% for paper in papers|slice:":5" %}
 <div class="paper-card">
-    <h3>{{ paper.title }}</h3>
-    <p><strong>저자:</strong> {{ paper.authors }}</p>
-    <p><strong>분야:</strong> {{ paper.category }}</p>
+    <h3 class="paper-title">
+        <a href="{{ paper.detail_url }}" target="_blank">
+            {{ paper.title }}
+        </a>
+    </h3>
 
-    <a href="{{ paper.detail_url }}" target="_blank">상세보기</a> |
-    <a href="{{ paper.pdf_url }}" target="_blank">PDF</a>
+    <p><strong>저자:</strong> {{ paper.authors }}</p>
+    <p><strong>분야:</strong>
+{% if paper.category == "econ" %}
+    경제학
+{% elif paper.category == "cs" %}
+    컴퓨터과학
+{% elif paper.category == "math" %}
+    수학
+{% elif paper.category == "stat" %}
+    통계학
+{% elif paper.category == "physics" %}
+    물리학
+{% else %}
+    {{ paper.category }}
+{% endif %}
+    </p>
+
+
+    <div class="paper-actions">
+        <a href="{{ paper.pdf_url }}" target="_blank" class="pdf-button">
+            PDF 보기
+        </a>
+    </div>
 </div>
-<hr>
 {% empty %}
 <p>해당 관심 분야의 논문이 없습니다.</p>
 {% endfor %}

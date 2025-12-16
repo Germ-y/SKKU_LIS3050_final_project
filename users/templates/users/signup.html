@@ -2,9 +2,67 @@
 
 {% block content %}
   <h2>회원가입</h2>
+  {% if form.errors %}
+    <div style="color:red;">
+      {% for field in form %}
+        {% for error in field.errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <p>{{ error }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>
+      <label for="{{ form.username.id_for_label }}">사용자 이름:</label>
+      {{ form.username }}
+    </p>
+    <p>
+      <label for="{{ form.password1.id_for_label }}">비밀번호:</label>
+      {{ form.password1 }}
+    </p>
+    <p>
+      <label for="{{ form.password2.id_for_label }}">비밀번호 확인:</label>
+      {{ form.password2 }}
+    </p>
+    <p>
+      <label for="id_interest">관심 분야를 선택하세요:</label>
+      <div id="interest-selection" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-top: 10px;">
+        {% for value, label in form.interest.field.choices %}
+          <button type="button" class="interest-button" data-value="{{ value }}" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f0f0f0; cursor: pointer;">
+            {{ label }}
+          </button>
+        {% endfor %}
+      </div>
+      <input type="hidden" name="{{ form.interest.html_name }}" id="id_interest">
+    </p>
+    
     <button type="submit">가입</button>
   </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const interestButtons = document.querySelectorAll('.interest-button');
+      const hiddenInterestInput = document.getElementById('id_interest');
+
+      interestButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          interestButtons.forEach(btn => {
+            btn.style.backgroundColor = '#f0f0f0';
+            btn.style.borderColor = '#ccc';
+            btn.style.color = '#333';
+          });
+
+          this.style.backgroundColor = '#fbcfe8';
+          this.style.borderColor = '#831843';
+          this.style.color = '#831843';
+
+          hiddenInterestInput.value = this.dataset.value;
+        });
+      });
+    });
+  </script>
 {% endblock %}

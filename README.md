@@ -1,4 +1,4 @@
-# NextGen Research Portal
+# 차세대시스템설계론 Research Portal
 
 이 프로젝트는 Django 프레임워크를 사용하여 최신 AI 연구 트렌드를 한곳에서 볼 수 있고, 관심 분야 기반으로 개인 맞춤 논문을 추천해주는 웹 애플리케이션입니다.
 
@@ -50,7 +50,7 @@ project_root/
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nextgen_db',
+        'NAME': '차세대시스템설계론_db',
         'USER': 'root',
         'PASSWORD': 'your_password',   # Cloud SQL 비밀번호
         'HOST': 'your.mysql.ip',       # Cloud SQL public IP
@@ -305,7 +305,7 @@ urlpatterns = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Portal</title>
+    <title>차세대시스템설계론 Portal</title>
     <style>
         /* ... CSS styles ... */
     </style>
@@ -313,7 +313,7 @@ urlpatterns = [
 <body>
 
 <header>
-    <h1>NextGen Research Portal</h1>
+    <h1>차세대시스템설계론 Research Portal</h1>
 </header>
 
 <section class="hero">
@@ -327,7 +327,7 @@ urlpatterns = [
 </main>
 
 <footer>
-    <p>© 2025 NextGen System</p>
+    <p>© 2025 차세대시스템설계론 System</p>
 </footer>
 
 </body>

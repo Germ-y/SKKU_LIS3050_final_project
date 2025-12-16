@@ -3,45 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Portal</title>
+    <title>차세대시스템설계론</title>
+
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f8f9fa; color: #343a40; }
-        header, footer { background-color: #343a40; color: white; text-align: center; padding: 1rem 0; }
-        header nav { padding: 0.5rem 0; }
-        header nav span, header nav a { color: white; margin: 0 1rem; }
-        .hero { background-color: #007bff; color: white; text-align: center; padding: 4rem 2rem; }
-        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        main { max-width: 800px; margin: 2rem auto; padding: 1rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1, h2, h3 { color: #0056b3; }
-        a { color: #007bff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        form { margin-top: 1.5rem; }
-        form p { margin-bottom: 1rem; }
-        input[type="text"], input[type="password"] { width: calc(100% - 20px); padding: 10px; border-radius: 4px; border: 1px solid #ced4da; }
-        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
-        button:hover { background-color: #0056b3; }
-        hr { border: 0; height: 1px; background-color: #e9ecef; margin: 2rem 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f7ff;
+            color: #374151;
+        }
+
+        header {
+            background-color: #c7d2fe;    
+            color: #1e1b4b;
+            text-align: center;
+            padding: 1rem 0;
+            min-height: 140px;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        header h2 {
+            margin: 0.3rem 0 0;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        nav {
+            margin-top: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        nav span {
+            font-size: 0.95rem;
+            color: #3730a3;
+        }
+
+        .nav-guest {
+            color: #f472b6;   
+            opacity: 0.8;
+        }
+
+        .link-button {
+            all: unset;
+            cursor: pointer;
+            color: #ec4899;   
+            font-weight: 600;
+        }
+
+        .link-button:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-color: #e0e7ff;     
+            text-align: center;
+            padding: 3.5rem 1rem;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2.3rem;
+            color: #1e1b4b;
+        }
+
+        .hero p {
+            margin-top: 0.8rem;
+            font-size: 1.05rem;
+            color: #ec4899;           
+            font-weight: 500;
+        }
+
+        main {
+        max-width: 700px;     
+        width: 90%;             
+        margin: 2rem auto 3rem;
+        background-color: white;
+        padding: 2.5rem 3rem;   
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 0.4rem;
+            border-radius: 10px;
+            border: 1px solid #c7d2fe;
+            font-size: 0.95rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ec4899;       
+        }
+
+        button {
+            margin-top: 1.5rem;
+            width: 100%;
+            background-color: #fbcfe8;    
+            color: #831843;
+            border: none;
+            padding: 12px;
+            border-radius: 999px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #f472b6;
+            color: white;
+        }
+
+        footer {
+            background-color: #c7d2fe;  
+            color: #6b7280;          
+            text-align: center;
+            padding: 0.8rem 0;
+            font-size: 0.85rem;
+        }
+
+        .paper-card {
+        position: relative;
+        padding: 1.5rem 1.5rem 3rem;
+        border-bottom: 1px solid #e5e7eb;
+        }
+
+        .paper-title a {
+        color: #111827;         
+        text-decoration: none;   
+        }
+
+        .paper-title a:hover {
+        text-decoration: underline;
+        }
+
+        .paper-actions {
+        position: absolute;
+        right: 1.5rem;
+        bottom: 1.2rem;
+        }
+
+        .pdf-button {
+        background-color: #fbcfe8; 
+        color: #831843;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        }
+
+        .pdf-button:hover {
+            background-color: #f472b6;
+            color: white;
+        }   
     </style>
 </head>
-<body>
 
+<body>
 <header>
-    <h1>NextGen Research Portal</h1>
+    <h1>논문 검색 Portal</h1>
+    <h2>2023313835 박윤서</h2>
+
     <nav>
-        {% if user.is_authenticated %}
-            <span>환영합니다, {{ user.username }}님!</span>
-            <a href="{% url 'logout' %}">로그아웃</a>
-            <a href="{% url 'paper_list' %}">논문 목록</a>
-        {% else %}
-            <a href="{% url 'login' %}">로그인</a>
-        {% endif %}
-    </nav>
+    {% if user.is_authenticated %}
+        <span>환영합니다, {{ user.username }}님</span>
+        <form action="{% url 'logout' %}" method="post" style="display:inline; margin:0;">
+            {% csrf_token %}
+            <button type="submit" class="link-button">로그아웃</button>
+        </form>
+    {% elif request.resolver_match.url_name == 'signup' %}
+        <a href="{% url 'login' %}" class="link-button">로그인</a>
+    {% else %}
+        <span class="nav-guest">로그인 후 이용해주세요</span>
+    {% endif %}
+</nav>
 </header>
 
+{% if request.resolver_match.url_name == 'login' or request.resolver_match.url_name == 'signup' %}
 <section class="hero">
-    <h2>최신 AI 연구 트렌드를 한 곳에서</h2>
-    <p>관심분야 기반 개인 맞춤 논문 추천</p>
+    <h2>차세대시스템설계론 실습 WEB</h2>
+    <p>관심 분야 기반 개인 맞춤 논문 검색 서비스</p>
 </section>
+{% endif %}
 
 <main>
     {% block content %}
@@ -49,7 +203,7 @@
 </main>
 
 <footer>
-    <p>© 2025 NextGen System</p>
+    <p>2025-1 차세대시스템설계론 기말 대체 프로젝트</p>
 </footer>
 
 </body>
