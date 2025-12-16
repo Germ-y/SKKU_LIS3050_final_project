@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #     }
 # }
 
-# TODO: 로컬 개발용 (GCP용으로 나중에 변경 해야함)
+# 로컬 개발용
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
