@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': '차세대시스템설계론_db',
         'USER': 'root',
         'PASSWORD': 'kellysally1',
-        'HOST': '34.31.17.89',    
+        'HOST': '34.64.103.195',    
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
