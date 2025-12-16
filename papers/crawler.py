@@ -41,4 +41,6 @@ def crawl_arxiv(interest_code):
         )
         
         count += 1
-    #print(f"[크롤링 완료] {count}개 저장됨")
+        
+        if count==5:
+            break
