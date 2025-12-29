@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '차세대시스템설계론_db',
         'USER': 'root',
-        'PASSWORD': 'kellysally1',
+        'PASSWORD': 'PW',
         'HOST': '34.64.103.195',    
         'PORT': '3306',
         'OPTIONS': {
